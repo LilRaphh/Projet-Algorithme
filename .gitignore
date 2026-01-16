@@ -1,0 +1,12 @@
+# Datasets
+*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Mac
+.DS_Store
+
+# Office temp files
+~$*.docx
+~$*.xlsx
