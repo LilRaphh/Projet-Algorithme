@@ -10,3 +10,5 @@
 # Office temp files
 ~$*.docx
 ~$*.xlsx
+
+env/
