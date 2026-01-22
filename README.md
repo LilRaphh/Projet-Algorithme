@@ -8,9 +8,11 @@ Il vise à construire un pipeline complet d’analyse de données ECG (électroc
 - Exploration des données
 - Méthodes non supervisées (clustering)
 - Méthodes supervisées et Deep Learning
+- Transformers et données textuelles médicales
+- Apprentissage par renforcement
 - Analyse comparative des modèles
 
-Les travaux portent principalement sur des **signaux ECG**, avec une approche orientée **Machine Learning** et **Deep Learning**.
+Les travaux portent principalement sur des **signaux ECG**, avec une approche orientée **Machine Learning**, **Deep Learning** et **IA moderne**.
 
 ---
 
@@ -19,7 +21,9 @@ Les travaux portent principalement sur des **signaux ECG**, avec une approche or
 - Explorer et comprendre des données ECG réelles
 - Identifier des groupes de patients similaires (clustering)
 - Construire des modèles de classification de risques cardiaques
-- Comparer les performances des approches classiques et profondes
+- Exploiter des textes cliniques via des modèles Transformers
+- Simuler une prise de décision médicale via apprentissage par renforcement
+- Comparer les performances des approches classiques et avancées
 - Structurer un projet reproductible et documenté
 
 ---
@@ -32,6 +36,8 @@ Projet-Algorithme/
 ├── notebooks/
 │   ├── 01_exploration_non_supervisee.ipynb
 │   ├── 02_supervise_deep_learning.ipynb
+│   ├── 03_transformers_textes_medicaux.ipynb
+│   ├── 04_reinforcement_learning.ipynb
 │   └── utils.ipynb
 │
 ├── src/
@@ -60,7 +66,7 @@ Ils sont mis à disposition via **SwissTransfer**.
 
 ### Lien de téléchargement des données
 
--> https://www.swisstransfer.com/d/6714f2de-4583-4b57-a677-3ea9bd3d5a7a
+https://www.swisstransfer.com/d/6714f2de-4583-4b57-a677-3ea9bd3d5a7a
 
 Après téléchargement, place les données dans un dossier local, par exemple :
 
@@ -98,12 +104,43 @@ Ce dossier est volontairement ignoré par Git (`.gitignore`).
   - F1-score
   - ROC-AUC
 
+### Étape 3 – Transformers & Attention
+- Utilisation de **ClinicalBERT** pour textes cliniques médicaux
+- Tokenisation et extraction d’embeddings via HuggingFace
+- Fusion multimodale :
+  - Embeddings ECG (CNN)
+  - Embeddings texte (BERT)
+- Couche d’attention multi-têtes (Multi-Head Attention)
+- Visualisation de l’attention (heatmaps, mots-clés médicaux)
+- Comparaison avec une baseline TF-IDF
+
+### Étape 4 – Apprentissage par Renforcement
+- Problème simulé de décision médicale
+- États : caractéristiques patient (âge, poids, etc.)
+- Actions : doses de traitement
+- Reward : réduction d’un risque médical simulé
+- Environnement personnalisé (Gym)
+- Algorithme : PPO (Proximal Policy Optimization)
+- Comparaison avec des baselines simples
+
+### Étape 5 – Discussion Critique
+- Analyse des limites :
+  - Biais des datasets médicaux
+  - Déséquilibre des classes
+  - Contraintes matérielles (mémoire GPU)
+- Enjeux éthiques :
+  - Données de santé et RGPD
+  - Explicabilité des modèles (XAI)
+- Perspectives :
+  - Modèles multimodaux médicaux
+  - Apprentissage par renforcement avec retour humain
+  - Déploiement MLOps en environnement hospitalier
+
 ---
 
 ## ⚙️ Installation & Environnement
 
 ### Prérequis
-
 - Python ≥ 3.9
 - Environnement virtuel recommandé
 
@@ -122,6 +159,9 @@ Principales librairies utilisées :
 - tensorflow
 - keras
 - wfdb
+- transformers
+- stable-baselines3
+- gym
 
 ---
 
@@ -132,6 +172,8 @@ Principales librairies utilisées :
 3. Lancer les notebooks dans l’ordre :
    - `01_exploration_non_supervisee.ipynb`
    - `02_supervise_deep_learning.ipynb`
+   - `03_transformers_textes_medicaux.ipynb`
+   - `04_reinforcement_learning.ipynb`
 
 ---
 
@@ -143,6 +185,7 @@ Principales librairies utilisées :
   - extraction de features
   - modèles
   - évaluation
+- Travail en binôme avec répartition par étapes
 
 ---
 
@@ -154,5 +197,7 @@ Projet académique – usage pédagogique uniquement.
 
 ## Auteurs
 
-Raphaël COLNOT et Clément METOIS
+Raphaël COLNOT  
+Clément METOIS  
+
 Master Data Science / Big Data & Intelligence Artificielle
